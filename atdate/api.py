@@ -1,7 +1,7 @@
-from collections import namedtuple
 from datetime import datetime, timedelta
 
 from lark import Lark, Transformer
+from dateutil.relativedelta import relativedelta
 
 
 class AtDateParser:
@@ -212,9 +212,10 @@ class AtDateTransformer(Transformer):
         return datetime(**self.datetime_params)
 
     def _next(self, matches):
-        inc_period = matches[0]
-        self.datetime_params[inc_period] += 1
-        return datetime(**self.datetime_params)
+        inc_period = matches[0] if matches[0].endswith('s') else matches[0] + 's'
+        dt = datetime(**self.datetime_params)
+        ret = relativedelta(**{inc_period: 1})
+        return dt + ret
 
     def _inc_number(self, matches):
         inc_number = int(matches[0])

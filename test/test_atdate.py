@@ -1,6 +1,6 @@
-import sys
 from datetime import datetime
 
+import pytest
 from freezegun import freeze_time
 
 import atdate
@@ -77,8 +77,15 @@ def test_at_now():
 
 
 @freeze_time('2000-01-02 03:04:05')
-def test_at_now_next_minute():
+def test_at_now_next_minute_change_minute():
     test_string = 'now next minute'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 2, 3, 5, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_minutes():
+    test_string = 'now next minutes'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 1, 2, 3, 5, 5, 0)
 
@@ -88,3 +95,17 @@ def test_at_now_next_minute_change_hour():
     test_string = 'now next minute'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 1, 2, 4, 0, 5, 0)
+
+
+@freeze_time('2000-01-02 23:59:05')
+def test_at_now_next_minute_change_day():
+    test_string = 'now next minute'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 3, 0, 0, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_hour():
+    test_string = 'now next hour'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 2, 4, 4, 5, 0)
