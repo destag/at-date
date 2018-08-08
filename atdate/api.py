@@ -157,12 +157,12 @@ class AtDateTransformer(Transformer):
         return datetime(**self.datetime_params)
 
     def _noon(self, matches):
-        next_day = self._check_if_next_day(12, 0)
-        self.datetime_params['day'] += next_day
+        next_day = timedelta(self._check_if_next_day(12, 0))
         self.datetime_params['hour'] = 12
         self.datetime_params['minute'] = 0
         self.datetime_params['second'] = 0
-        return datetime(**self.datetime_params)
+        dt = datetime(**self.datetime_params)
+        return dt + next_day
 
     def _midnight(self, matches):
         self.datetime_params['day'] += 1
