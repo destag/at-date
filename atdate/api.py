@@ -157,7 +157,7 @@ class AtDateTransformer(Transformer):
         return datetime(**self.datetime_params)
 
     def _noon(self, matches):
-        next_day = timedelta(self._check_if_next_day(12, 0))
+        next_day = timedelta(days=self._check_if_next_day(12, 0))
         self.datetime_params['hour'] = 12
         self.datetime_params['minute'] = 0
         self.datetime_params['second'] = 0
@@ -165,11 +165,12 @@ class AtDateTransformer(Transformer):
         return dt + next_day
 
     def _midnight(self, matches):
-        self.datetime_params['day'] += 1
+        next_day = timedelta(days=1)
         self.datetime_params['hour'] = 0
         self.datetime_params['minute'] = 0
         self.datetime_params['second'] = 0
-        return datetime(**self.datetime_params)
+        dt = datetime(**self.datetime_params)
+        return dt + next_day
 
     def _month_name_day_number(self, matches):
         month = self.__class__._month_name_to_month_number[matches[0]]

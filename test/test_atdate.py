@@ -53,3 +53,24 @@ def test_at_noon_year_change():
     test_string = 'noon'
     result = atdate.parse(test_string)
     assert result == datetime(2001, 1, 1, 12, 0, 0, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_midnight():
+    test_string = 'midnight'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 3, 0, 0, 0, 0)
+
+
+@freeze_time('2000-01-31 13:04:05')
+def test_at_midnight_month_change():
+    test_string = 'midnight'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 2, 1, 0, 0, 0, 0)
+
+
+@freeze_time('2000-12-31 13:04:05')
+def test_at_midnight_year_change():
+    test_string = 'midnight'
+    result = atdate.parse(test_string)
+    assert result == datetime(2001, 1, 1, 0, 0, 0, 0)
