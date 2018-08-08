@@ -21,13 +21,6 @@ def test_parse_return_datetime_object():
 
 
 @freeze_time('2000-01-02 03:04:05')
-def test_at_now():
-    test_string = 'now'
-    result = atdate.parse(test_string)
-    assert result == datetime(2000, 1, 2, 3, 4, 5, 0)
-
-
-@freeze_time('2000-01-02 03:04:05')
 def test_at_noon_before_noon():
     test_string = 'noon'
     result = atdate.parse(test_string)
@@ -74,3 +67,24 @@ def test_at_midnight_year_change():
     test_string = 'midnight'
     result = atdate.parse(test_string)
     assert result == datetime(2001, 1, 1, 0, 0, 0, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now():
+    test_string = 'now'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 2, 3, 4, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_minute():
+    test_string = 'now next minute'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 2, 3, 5, 5, 0)
+
+
+@freeze_time('2000-01-02 03:59:05')
+def test_at_now_next_minute_change_hour():
+    test_string = 'now next minute'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 2, 4, 0, 5, 0)
