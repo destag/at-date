@@ -1,8 +1,4 @@
 language: python
-python:
-  - 3.4
-  - 3.5
-  - 3.6
 stages:
   - test
   - deploy
@@ -12,6 +8,10 @@ install:
 jobs:
   include:
     - stage: test
+      python:
+        - 3.4
+        - 3.5
+        - 3.6
       script: pytest
     - stage: deploy
       python: 3.6
