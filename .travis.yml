@@ -8,13 +8,17 @@ install:
 jobs:
   include:
     - stage: test
-      python:
-        - 3.4
-        - 3.5
-        - 3.6
+      python: 3.4
+      script: pytest
+    - stage: test
+      python: 3.5
+      script: pytest
+    - stage: test
+      python: 3.6
       script: pytest
     - stage: deploy
       python: 3.6
+      install: true
       deploy:
         provider: pypi
         user:
