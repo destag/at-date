@@ -18,7 +18,7 @@ jobs:
       script: pytest
     - stage: deploy
       python: 3.6
-      install: true
+      install: skip
       deploy:
         provider: pypi
         user:
