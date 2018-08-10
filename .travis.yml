@@ -17,6 +17,7 @@ jobs:
       python: 3.6
       script: pytest
     - stage: deploy
+      if: tag IS present
       python: 3.6
       install: skip
       script: true
