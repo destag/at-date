@@ -10,8 +10,8 @@ script: pytest
 deploy:
   provider: pypi
   user:
-    secure: PYPI_USERNAME
+    secure: $PYPI_USERNAME
   password:
-    secure: PYPI_PASSWORD
+    secure: $PYPI_PASSWORD
   on:
     all_branches: true
