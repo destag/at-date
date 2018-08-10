@@ -1,0 +1,31 @@
+language: python
+stages:
+  - test
+  - deploy
+install:
+  - pip install -r requirements.txt
+  - pip install -r test-requirements.txt
+jobs:
+  include:
+    - stage: test
+      python: 3.4
+      script: pytest
+    - stage: test
+      python: 3.5
+      script: pytest
+    - stage: test
+      python: 3.6
+      script: pytest
+    - stage: deploy
+      if: tag IS present
+      python: 3.6
+      install: skip
+      script: true
+      deploy:
+        provider: pypi
+        user:
+          secure: "doxjHVz+75y9ZBioOOU309ImjyHfDCXNi+3U+lpQBPfbCVWvEsDxg8mvXkPpzxYVdRO0Lwz+JuxSTmYO5TtAR/Z1b1kBggO7gPwHuPsm2PSLZ5zOVPKjtUcLtmH8A8111d2pL6UBUtgr6/UfxZyuEU6CIThdnLyb8lqUC2KeNHdAeWIfrZvXeIc6F8aerwGofRwBwt3SwDqyS07Uy1WjY9i+PqzgxViqYaRM/KT46oYy6R1GRw31KdUxpnHf56+7c0+99P+pyliGwY4TEXvoZ/bf23OGscYLD77ccIx+4jKZIq/0h/H16TPOtPkfSBb1//7tU0QK/VcuIaS4p/5nizwqz9GsPCw3431Jk7NiciTAHucoCvKQZ7/18Q9ciIhb0UcqnKl/tAtryrKKs750y1OlT96blPSL8GoEcK2yl8HbRQug5Cq4M2u4haN2xM3rVunzulo2sQUyNVuo5T/qy4kxbI1I6p7du9naau+6ruZjalpAhPbkWZjED8+ZZtbTVGkUOnRSVwJ83OfGpHDeB3LJYyLBw3U2w5nfVJ303KN76u2BZ29un+VZDC8hdbY3tHLNIiCPjeKb3wl6gNkj2sQY/cGPUFXoXf1BFtus2G+jAEvHJ+Q2asVFW0/kIKPomNPl4UdPlDKsPxTQb7b9dGbTeXPNxA8AyYP/VclUTjE="
+        password:
+          secure: "q3vsnmFBI+qa8g9hDju8QglfGvBq8HEKbbDRL1OZ8irELuhKwKLGk241sVmRqUvqMP2xZa1CkvihYhuu9UXxwp1gZP2hvVqK7LYkjgW5svF4nKbcP9fIfd2Ijo6FzdX03urVZlBlH0/HIJBGRlQwXDzS8Ay7jhQdolz5cX4IdxB/uCYR2Prac13L9utrPfHYl/vX7sXHq6QC176GRqx3BuZTMg2WVgIKJ/Jr8adehX7NlmdQpnjllpxpJGN/kkEsN8dUK/LSG34FXQx0BpUpMoHSM9cB0KuxrTKByi0IevLCXpvbLSL6/06sGYWcyd8pX4rbP5d54fuyeoWdeMVRDP2LpG+7kDGNScUY9PK20O9080kDYldsP+N6FrbxxpzOOz82P2bfL5gRyFbYjn5I4uC0KrQDDwvxpeQlbaGM6eyWrKR/ZLoS0YHgpmi8CCvzwrGaLEll1oxGo1oyUh4+07FggCQvp3x992SSxIh88596MaTnb8tXc1h0zYnbCPL/G884iWykxqIJOslkkjR+3HxASKJwSNLewDLQjs6lRYtt6uDBseI5n+YSBe9B4CaKS5G9cLpVLkrYIPdW1ZheyMr6zm2brvB4M/6XRCmZ9jiwptoamv6OSbO+JXfVtsd2mqf+p2TAwQfjhBUdhjiAmEk+OsSnfKxtOuAoxEqWoNA="
+        on:
+          all_branches: true

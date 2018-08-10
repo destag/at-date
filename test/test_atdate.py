@@ -109,3 +109,31 @@ def test_at_now_next_hour():
     test_string = 'now next hour'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 1, 2, 4, 4, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_day():
+    test_string = 'now next day'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 3, 3, 4, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_week():
+    test_string = 'now next week'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 1, 9, 3, 4, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_month():
+    test_string = 'now next month'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 2, 2, 3, 4, 5, 0)
+
+
+@freeze_time('2000-01-02 03:04:05')
+def test_at_now_next_year():
+    test_string = 'now next year'
+    result = atdate.parse(test_string)
+    assert result == datetime(2001, 1, 2, 3, 4, 5, 0)
