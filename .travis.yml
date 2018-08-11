@@ -1,6 +1,7 @@
 language: python
 stages:
   - test
+  - build
   - deploy
 install:
   - pip install -r requirements.txt
@@ -16,6 +17,10 @@ jobs:
     - stage: test
       python: 3.6
       script: pytest
+    - stage: build
+      python: 3.6
+      install: skip
+      script: python setup.py install
     - stage: deploy
       if: tag IS present
       python: 3.6
