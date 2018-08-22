@@ -5,6 +5,7 @@ stages:
 install:
   - pip install -r requirements.txt
   - pip install -r test-requirements.txt
+  - pip install coveralls
 jobs:
   include:
     - stage: test
@@ -16,6 +17,7 @@ jobs:
     - stage: test
       python: 3.6
       script: pytest
+      after_success: coveralls
     - stage: deploy
       if: tag IS present
       python: 3.6
