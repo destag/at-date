@@ -5,7 +5,7 @@ stages:
 install:
   - pip install -r requirements.txt
   - pip install -r test-requirements.txt
-  - pip install coveralls
+  - pip install codecov
 jobs:
   include:
     - stage: test
@@ -16,8 +16,8 @@ jobs:
       script: pytest
     - stage: test
       python: 3.6
-      script: pytest
-      after_success: coveralls
+      script: pytest --cov=atdate
+      after_success: codecov
     - stage: deploy
       if: tag IS present
       python: 3.6
