@@ -3,12 +3,12 @@ from datetime import datetime, timedelta
 from lark import Lark, Transformer
 from dateutil.relativedelta import relativedelta
 
+from .atdate_format import format_string
+
 
 class AtDateParser:
     def __init__(self):
-        with open('atdate/atdate_format.lark', 'r') as form_file:
-            form = form_file.read()
-        self.parser = Lark(form, start='timespec')
+        self.parser = Lark(format_string, start='timespec')
 
     def execute(self, string_to_parse):
         transformer = AtDateTransformer()

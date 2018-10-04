@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="atdate",
-    version="0.0.1-dev8",
+    version="0.0.1-dev9",
     author="Przemysław Pietras",
     author_email="przemyslawp94@gmail.com",
     description="Simple linux at command string parser",

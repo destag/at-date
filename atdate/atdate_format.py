@@ -1,3 +1,4 @@
+format_string = """
 ?timespec: time
          | time date
          | time increment
@@ -57,3 +58,4 @@ AM_PM: "am" | "pm"
 %import common.NUMBER
 %import common.WS
 %ignore WS
+"""
