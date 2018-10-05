@@ -4,3 +4,4 @@ atdate.egg-info
 build/
 dist/
 venv/
+.coverage

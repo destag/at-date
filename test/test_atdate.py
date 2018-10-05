@@ -136,3 +136,63 @@ def test_at_now_next_year():
     test_string = 'now next year'
     result = atdate.parse(test_string)
     assert result == datetime(2001, 1, 2, 3, 4, 5, 0)
+
+@freeze_time('2000-01-02 03:04:05')
+def test_month_number_day_number():
+    test_string = '05/20'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 5, 20, 3, 4, 5, 0)
+
+@freeze_time('2000-01-02 03:04:05')
+def test_month_name_day_number():
+    test_string = 'May 20'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 5, 20, 3, 4, 5, 0)
+
+@freeze_time('2000-01-02 03:04:05')
+def test_month_number_day_number_year_number():
+    test_string = '05/20/2003'
+    result = atdate.parse(test_string)
+    assert result == datetime(2003, 5, 20, 3, 4, 5, 0)
+
+@freeze_time('2000-01-02 03:04:05')
+def test_day_number_month_number():
+    test_string = '20.05'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 5, 20, 3, 4, 5, 0)
+
+@freeze_time('2000-01-02 03:04:05')
+def test_day_number_month_number_year_number():
+    test_string = '20.05.2003'
+    result = atdate.parse(test_string)
+    assert result == datetime(2003, 5, 20, 3, 4, 5, 0)
+
+@freeze_time('2000-07-02 03:04:05')
+def test_inc_period():
+    test_string = '02.07.2000 +1days'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 7, 3, 3, 4, 5, 0)
+
+@freeze_time('2000-07-02 03:04:05')
+def test_hr24clock_hr_min():
+    test_string = '1401'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
+
+@freeze_time('2000-07-02 03:04:05')
+def test_hr24clock_hour_minute():
+    test_string = '14:01'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
+
+@freeze_time('2000-07-02 03:04:05')
+def test_wallclock_hr_min_am_pm():
+    test_string = '0201 pm'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
+
+@freeze_time('2000-07-02 03:04:05')
+def test_wallclock_hour_minute_am_pm():
+    test_string = '02:01 pm'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
