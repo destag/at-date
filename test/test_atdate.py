@@ -137,11 +137,13 @@ def test_at_now_next_year():
     result = atdate.parse(test_string)
     assert result == datetime(2001, 1, 2, 3, 4, 5, 0)
 
+
 @freeze_time('2000-01-02 03:04:05')
 def test_month_number_day_number():
     test_string = '05/20'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 5, 20, 3, 4, 5, 0)
+
 
 @freeze_time('2000-01-02 03:04:05')
 def test_month_name_day_number():
@@ -149,11 +151,13 @@ def test_month_name_day_number():
     result = atdate.parse(test_string)
     assert result == datetime(2000, 5, 20, 3, 4, 5, 0)
 
+
 @freeze_time('2000-01-02 03:04:05')
 def test_month_number_day_number_year_number():
     test_string = '05/20/2003'
     result = atdate.parse(test_string)
     assert result == datetime(2003, 5, 20, 3, 4, 5, 0)
+
 
 @freeze_time('2000-01-02 03:04:05')
 def test_day_number_month_number():
@@ -161,11 +165,13 @@ def test_day_number_month_number():
     result = atdate.parse(test_string)
     assert result == datetime(2000, 5, 20, 3, 4, 5, 0)
 
+
 @freeze_time('2000-01-02 03:04:05')
 def test_day_number_month_number_year_number():
     test_string = '20.05.2003'
     result = atdate.parse(test_string)
     assert result == datetime(2003, 5, 20, 3, 4, 5, 0)
+
 
 @freeze_time('2000-07-02 03:04:05')
 def test_inc_period():
@@ -173,11 +179,13 @@ def test_inc_period():
     result = atdate.parse(test_string)
     assert result == datetime(2000, 7, 3, 3, 4, 5, 0)
 
+
 @freeze_time('2000-07-02 03:04:05')
 def test_hr24clock_hr_min():
     test_string = '1401'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
+
 
 @freeze_time('2000-07-02 03:04:05')
 def test_hr24clock_hour_minute():
@@ -185,11 +193,13 @@ def test_hr24clock_hour_minute():
     result = atdate.parse(test_string)
     assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
 
+
 @freeze_time('2000-07-02 03:04:05')
 def test_wallclock_hr_min_am_pm():
     test_string = '0201 pm'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
+
 
 @freeze_time('2000-07-02 03:04:05')
 def test_wallclock_hour_minute_am_pm():
