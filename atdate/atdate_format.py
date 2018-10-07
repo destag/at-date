@@ -3,6 +3,8 @@ format_string = """
          | time date
          | time increment
          | time date increment
+         | date
+         | date increment
          | nowspec
          | nowspec increment
 time: HR24CLOCK_HR_MIN                            -> _hr24clock_hr_min
@@ -17,7 +19,7 @@ date: MONTH_NAME DAY_NUMBER                       -> _month_name_day_number
     | DAY_NUMBER "." MONTH_NUMBER                 -> _day_number_month_number
     | DAY_NUMBER "." MONTH_NUMBER "." YEAR_NUMBER -> _day_number_month_number_year_number
 increment: "next" INC_PERIOD                      -> _next
-         | "+" INC_NUMBER INC_PERIOD              -> _inc_number
+         | "+" INT INC_PERIOD                     -> _inc_number
 nowspec: "now"                                    -> _now
 INC_PERIOD: "minutes" | "minute"
           | "hours" | "hour"
@@ -44,18 +46,16 @@ DAY_NAME: "monday" | "mon"
         | "friday" | "fri"
         | "saturday" | "sat"
         | "sunday" | "sun"
-DAY_NUMBER: /\b([0-3][0-9]|[0-9])\b/
-MONTH_NUMBER: /\b([1-9]|0[1-9]|1[0-2])\b/
-YEAR_NUMBER: /\b[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9]|[0-9]\b/
-INC_NUMBER: /\b([1-9]|[1-9][0-9]|[1-9][0-9][0-9])\b/
-HR24CLOCK_HR_MIN: /\b(([0-1][0-9]|2[0-3])[0-5][0-9])|([0-1][0-9]|2[0-3])|[0-9]\b/
-HR24CLOCK_HOUR: /\b([0-1][0-9]|2[0-3])|[0-9]\b/
-WALLCLOCK_HR_MIN: /\b((0[1-9]|1[0-2])[0-5][0-9])|(0[1-9]|1[0-2])|[1-9]\b/
-WALLCLOCK_HOUR:  /\b(0[0-9]|1[0-2])|[0-9]\b/
-MINUTE: /\b[0-5][0-9]|[0-9]\b/
+DAY_NUMBER: /([0-3][0-9]|[0-9])/
+MONTH_NUMBER: /([1-9]|0[1-9]|1[0-2])/
+YEAR_NUMBER: /[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9]|[0-9]/
+HR24CLOCK_HR_MIN: /(([0-1][0-9]|2[0-3])[0-5][0-9])|([0-1][0-9]|2[0-3])|[0-9]/
+HR24CLOCK_HOUR: /([0-1][0-9]|2[0-3])|[0-9]/
+WALLCLOCK_HR_MIN: /((0[1-9]|1[0-2])[0-5][0-9])|(0[1-9]|1[0-2])|[1-9]/
+WALLCLOCK_HOUR:  /(0[0-9]|1[0-2])|[0-9]/
+MINUTE: /[0-5][0-9]|[0-9]/
 AM_PM: "am" | "pm"
-%import common.WORD
-%import common.NUMBER
+%import common.INT
 %import common.WS
 %ignore WS
 """
