@@ -7,7 +7,7 @@ install:
   - pipenv sync --dev
   - pipenv run pip install codecov
 
-before_script:
+before_install:
   - pip install pipenv
 
 
@@ -15,7 +15,9 @@ jobs:
   include:
     - stage: test
       python: 3.4
-      script: pipenv run pytest
+      script:
+        - pipenv run pip install pathlib2
+        - pipenv run pytest
     - stage: test
       python: 3.5
       script: pipenv run pytest
