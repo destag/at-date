@@ -6,17 +6,22 @@ install:
   - pipenv sync
   - pipenv sync --dev
   - pipenv run pip install codecov
+
+before_script:
+  - pip install pipenv
+
+
 jobs:
   include:
     - stage: test
       python: 3.4
-      script: pytest
+      script: pipenv run pytest
     - stage: test
       python: 3.5
-      script: pytest
+      script: pipenv run pytest
     - stage: test
       python: 3.6
-      script: pytest --cov=atdate
+      script: pipenv run pytest --cov=atdate
       after_success: codecov
     - stage: deploy
       if: tag IS present
