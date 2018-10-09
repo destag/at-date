@@ -1,4 +1,4 @@
-format_string = """
+format_string = r'''
 ?timespec: time
          | time date
          | time increment
@@ -58,4 +58,4 @@ AM_PM: "am" | "pm"
 %import common.INT
 %import common.WS
 %ignore WS
-"""
+'''
