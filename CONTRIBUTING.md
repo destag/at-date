@@ -4,6 +4,8 @@ First off, thank you for considering contributing to **at-date**. We want to mak
 
 ## Our Development Process
 
+The source code and issue tracker are hosted on GitHub. For automated testing and deployment we use Travis-CI. Test coverage is monitored with Codecov. We merge PR using **squash and merge** option.
+
 ## Pull Requests
 
 We actively welcome your pull requests.
@@ -28,9 +30,38 @@ We actively welcome your pull requests.
     ```bash
     pipenv run pytest
     ```
-9. Issue that pull request!
+9. Commit changes. Use [this guide](https://chris.beams.io/posts/git-commit/) for commit message.
+10. Issue that pull request!
 
 ## Code Style
+
+Every contributor must follow the [PEP8](https://www.python.org/dev/peps/pep-0008/) code style.
+
+### Docstrings
+
+Always add docstrings to public callables. Below you can see our styleguide:
+
+```python
+def foo(param1, param2):
+    """Short description.
+
+    Longer description
+    if needed.
+
+    Args:
+        param1 (int): The first parameter.
+        param2 (str): The second parameter.
+
+    Returns:
+        int: Sum of param1 and length of param2.
+
+    Raises:
+        ValueError: If arguments have wrong types.
+
+    """
+    return param1 + len(param2)
+
+```
 
 ## License
 
