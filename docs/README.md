@@ -20,6 +20,10 @@ Simple Python library for parsing **at command** string into datetime objects.
     - [date](#date)
     - [increment](#increment)
     - [now](#now)
+    - [month](#month)
+    - [weekday](#weekday)
+    - [period](#period)
+- [Final notes](#)
 
 ## Installation
 
@@ -178,3 +182,15 @@ sunday|sun
 
 Format for describing period of time. Can end with s. All possible formats are listed in table.
 
+name|s
+---|---
+minute|minutes
+hour|hours
+day|days
+week|weeks
+month|months
+year|years
+
+## Final notes
+
+Thank you for using 

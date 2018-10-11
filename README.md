@@ -22,7 +22,7 @@ pip install atdate
 
 ## Getting started
 
-To use **at-date** simply import **parse** function.
+To use **at-date** import **parse** function.
 
 ```python
 >>> from atdate import parse
@@ -34,7 +34,7 @@ datetime.datetime(2018, 10, 11, 12, 0)
 datetime.datetime(2018, 10, 10, 15, 42, 24)
 ```
 
-More info can be found in **/docs** directory or in [docs](#) page.
+More info can be found in [docs/](docs/) directory or in [docs page](https://destag.github.io/at-date/) page.
 
 ## How to Contribute
 
