@@ -193,4 +193,4 @@ year|years
 
 ## Final notes
 
-Thank you for using 
+Thank you for using **at-date**. If you found any bugs, have a question or want a feature to be added feel free to open [issue](https://github.com/destag/at-date/issues) on GitHub.
