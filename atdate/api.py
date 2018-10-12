@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 from lark import Lark, Transformer
+from lark.exceptions import UnexpectedCharacters
 from dateutil.relativedelta import relativedelta
 
 from .atdate_format import format_string
@@ -12,7 +13,20 @@ class AtDateParser:
 
     def execute(self, string_to_parse):
         transformer = AtDateTransformer()
-        tree = self.parser.parse(string_to_parse.lower())
+        try:
+            tree = self.parser.parse(string_to_parse.lower())
+        except UnexpectedCharacters as exp: # parser raised an exception, catch it as exp
+            #source of the problem might be the lack of "now" statement
+            for i in exp.allowed: # let's go through the expected arguments
+                if str(i) == "Terminal('NOW')":
+                    # there is NOW in expected arguments, this means the cause of the problem was
+                    # the lack of "now" statement
+                    # add it to the start of the string and try again:
+                    tree = self.parser.parse(( "now" + string_to_parse ).lower())
+                    break
+            if not tree:
+                # tree is still not defined, problem was not caused by the lack of the "NOW" statement
+                raise exp # throw expection back
         new_tree = transformer.transform(tree)
 
         next_time_run = new_tree if isinstance(new_tree, datetime) else new_tree.children[-1]
