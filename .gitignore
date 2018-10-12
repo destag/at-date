@@ -1,7 +1,8 @@
 *__pycache__/
+.vscode/
 .pytest_cache
-atdate.egg-info
+.coverage
+atdate.egg-info/
 build/
 dist/
 venv/
-.coverage
