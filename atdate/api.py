@@ -9,7 +9,19 @@ from .atdate_format import format_string
 class AtDateParser:
     def __init__(self):
         self.parser = Lark(format_string, start='timespec')
+    """Executes the date parser.
 
+    Args:
+    self (self): The execute function
+    string_to_parse (str): The date that needs to be parsed
+
+    Returns:
+    next_time_run: isinstance(new_tree, datetime)
+
+    Raises:
+    ValueError: If arguments have wrong types.
+
+    """
     def execute(self, string_to_parse):
         transformer = AtDateTransformer()
         tree = self.parser.parse(string_to_parse.lower())
