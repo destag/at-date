@@ -7,6 +7,7 @@ format_string = r'''
          | date increment
          | nowspec
          | nowspec increment
+         | increment
 time: HR24CLOCK_HR_MIN                            -> _hr24clock_hr_min
     | HR24CLOCK_HOUR ":" MINUTE                   -> _hr24clock_hour_minute
     | WALLCLOCK_HR_MIN AM_PM                      -> _wallclock_hr_min_am_pm

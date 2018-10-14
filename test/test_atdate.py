@@ -206,3 +206,17 @@ def test_wallclock_hour_minute_am_pm():
     test_string = '02:01 pm'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 7, 2, 14, 1, 0, 0)
+
+
+@freeze_time('2000-07-02 03:04:05')
+def test_next_month_without_now():
+    test_string = 'next month'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 8, 2, 3, 4, 5, 0)
+
+
+@freeze_time('2000-07-02 03:04:05')
+def test_plus_one_day_without_now():
+    test_string = '+1days'
+    result = atdate.parse(test_string)
+    assert result == datetime(2000, 7, 3, 3, 4, 5, 0)
