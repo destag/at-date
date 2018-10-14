@@ -93,14 +93,20 @@ Valid at date string consists of tokens which can be in order:
 
 tokens|example
 ---|---
-time|17:32
-time date|17:32 11/22/2033
-time increment|17:32 next day
-time date increment|17:32 11/22/2033 next day
-date|11/22/2033
-date increment|11/22/2033 next month
-now|now
-now increment|now next day
+[time]|17:32
+[time] [date]|17:32 11/22/2033
+[time] [increment]|17:32 next day
+[time] [date] [increment]|17:32 11/22/2033 next day
+[date]|11/22/2033
+[date] [increment]|11/22/2033 next month
+[now]|now
+[now] [increment]|now next day
+[increment]|next month
+
+[time]: #time
+[date]: #date
+[increment]: #increment
+[now]: #now
 
 ### At date tokens
 
