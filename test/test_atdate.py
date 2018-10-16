@@ -220,3 +220,23 @@ def test_plus_one_day_without_now():
     test_string = '+1days'
     result = atdate.parse(test_string)
     assert result == datetime(2000, 7, 3, 3, 4, 5, 0)
+
+
+@freeze_time('2000-07-02 03:04:05')
+def test_isodate():
+    test_string = '2011-09-22'
+    result = atdate.parse(test_string)
+    assert result == datetime(2011, 9, 22, 3, 4, 5, 0)
+
+
+@freeze_time('2000-07-02 03:04:05')
+def test_isodatetime():
+    test_string = '2011-09-22T11:44'
+    result = atdate.parse(test_string)
+    assert result == datetime(2011, 9, 22, 11, 34, 5, 0)
+
+@freeze_time('2000-07-02 03:04:05')
+def test_isodatetime_without_t():
+    test_string = '2011-09-22 11:44'
+    result = atdate.parse(test_string)
+    assert result == datetime(2011, 9, 22, 11, 34, 5, 0)
