@@ -65,7 +65,7 @@ class AtDateTransformer(Transformer):
         self.datetime_params['second'] = 0
         return datetime(**self.datetime_params)
 
-    def _hr24clock_hour_minute(self, matches):
+    def _iso_time(self, matches):
         hour = int(matches[0])
         minute = int(matches[1])
         next_day = self._check_if_next_day(hour, minute)
@@ -147,6 +147,13 @@ class AtDateTransformer(Transformer):
 
     def _day_number_month_number_year_number(self, matches):
         day, month, year = map(int, matches)
+        self.datetime_params['day'] = day
+        self.datetime_params['month'] = month
+        self.datetime_params['year'] = year
+        return datetime(**self.datetime_params)
+
+    def _iso_date(self, matches):
+        year, month, day = map(int, matches)
         self.datetime_params['day'] = day
         self.datetime_params['month'] = month
         self.datetime_params['year'] = year
