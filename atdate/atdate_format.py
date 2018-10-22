@@ -3,7 +3,7 @@ format_string = r'''
          | time date
          | time increment
          | time date increment
-         | isodate isotime
+         | date time
          | isodate "t" isotime
          | date
          | date increment
