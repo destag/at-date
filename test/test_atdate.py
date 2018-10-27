@@ -230,6 +230,13 @@ def test_isodate():
 
 
 @freeze_time('2000-07-02 03:04:05')
+def test_time_date():
+    test_string = "12:24 01.02.2011"
+    result = atdate.parse(test_string)
+    assert result == datetime(2011, 2, 1, 12, 24, 0, 0)
+
+
+@freeze_time('2000-07-02 03:04:05')
 def test_isodatetime():
     test_string = '2011-09-22T11:44'
     result = atdate.parse(test_string)
