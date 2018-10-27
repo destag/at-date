@@ -98,15 +98,18 @@ tokens|example
 [time] [increment]|17:32 next day
 [time] [date] [increment]|17:32 11/22/2033 next day
 [date]|11/22/2033
+[date] [time]|11/22/2033 17:32
 [date] [increment]|11/22/2033 next month
 [now]|now
 [now] [increment]|now next day
 [increment]|next month
+[isodatetime]|2033-11-22T17:32
 
 [time]: #time
 [date]: #date
 [increment]: #increment
 [now]: #now
+[isodatetime]: #isodatetime
 
 ### At date tokens
 
@@ -135,6 +138,7 @@ format|example
 \[1-12\] / \[1-31\] / \[0-9999\]|10/27/2006
 \[1-12\] . \[1-31\]|10.27
 \[1-12\] . \[1-31\] . \[0-9999\]|10.27.2006
+\[0-9999\] - \[1-12\] - \[1-31\]|2006-10-27
 
 #### increment
 
@@ -144,6 +148,14 @@ format|example
 ---|---
 next \[[period](#period)\]|next month
 \+ \[0-9999\] \[[period](#period)\]|\+ 12 minutes
+
+#### isodatetime
+
+Format for ISO 8601 date time.
+
+format|example
+---|---
+\[0-9999\] - \[1-12\] - \[1-31\] T \[0-23\] : \[0-59\]|2033-11-22T17:32
 
 #### now
 
