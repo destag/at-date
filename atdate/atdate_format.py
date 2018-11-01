@@ -3,25 +3,30 @@ format_string = r'''
          | time date
          | time increment
          | time date increment
+         | date time
+         | isodate "t" isotime
          | date
          | date increment
          | nowspec
          | nowspec increment
          | increment
-time: HR24CLOCK_HR_MIN                            -> _hr24clock_hr_min
-    | HR24CLOCK_HOUR ":" MINUTE                   -> _hr24clock_hour_minute
-    | WALLCLOCK_HR_MIN AM_PM                      -> _wallclock_hr_min_am_pm
-    | WALLCLOCK_HOUR ":" MINUTE AM_PM             -> _wallclock_hour_minute_am_pm
-    | "noon"                                      -> _noon
-    | "midnight"                                  -> _midnight
-date: MONTH_NAME DAY_NUMBER                       -> _month_name_day_number
-    | MONTH_NUMBER "/" DAY_NUMBER                 -> _month_number_day_number
-    | MONTH_NUMBER "/" DAY_NUMBER "/" YEAR_NUMBER -> _month_number_day_number_year_number
-    | DAY_NUMBER "." MONTH_NUMBER                 -> _day_number_month_number
-    | DAY_NUMBER "." MONTH_NUMBER "." YEAR_NUMBER -> _day_number_month_number_year_number
-increment: "next" INC_PERIOD                      -> _next
-         | "+" INT INC_PERIOD                     -> _inc_number
-nowspec: "now"                                    -> _now
+time: HR24CLOCK_HR_MIN                               -> _hr24clock_hr_min
+    | WALLCLOCK_HR_MIN AM_PM                         -> _wallclock_hr_min_am_pm
+    | WALLCLOCK_HOUR ":" MINUTE AM_PM                -> _wallclock_hour_minute_am_pm
+    | "noon"                                         -> _noon
+    | "midnight"                                     -> _midnight
+    | isotime
+date: MONTH_NAME DAY_NUMBER                          -> _month_name_day_number
+    | MONTH_NUMBER "/" DAY_NUMBER                    -> _month_number_day_number
+    | MONTH_NUMBER "/" DAY_NUMBER "/" YEAR_NUMBER    -> _month_number_day_number_year_number
+    | DAY_NUMBER "." MONTH_NUMBER                    -> _day_number_month_number
+    | DAY_NUMBER "." MONTH_NUMBER "." YEAR_NUMBER    -> _day_number_month_number_year_number
+    | isodate
+isodate: YEAR_NUMBER "-" MONTH_NUMBER "-" DAY_NUMBER -> _iso_date
+isotime: HR24CLOCK_HOUR ":" MINUTE                   -> _iso_time
+increment: "next" INC_PERIOD                         -> _next
+         | "+" INT INC_PERIOD                        -> _inc_number
+nowspec: "now"                                       -> _now
 INC_PERIOD: "minutes" | "minute"
           | "hours" | "hour"
           | "days" | "day"
