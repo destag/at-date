@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import pytest
 from freezegun import freeze_time
 
 import atdate
@@ -17,6 +18,16 @@ def test_parse_return_datetime_object():
     test_string = 'noon'
     result = atdate.parse(test_string)
     assert isinstance(result, datetime)
+
+
+@pytest.mark.parametrize('test_string,start_time,expected_time', [
+    pytest.param('noon', '2000-01-02 03:04:05', '2000-01-02 12:00:00', id='foo')
+])
+def test_at_date_parser(test_string, start_time, expected_time):
+    expected_dt = datetime.strptime(expected_time, '%Y-%m-%d %H:%M:%S')
+    with freeze_time(start_time):
+        result = atdate.parse(test_string)
+        assert result == expected_dt
 
 
 @freeze_time('2000-01-02 03:04:05')
