@@ -4,6 +4,7 @@ import pytest
 from freezegun import freeze_time
 
 import atdate
+from .test_scenarios import scenarios_dict
 
 
 def test_at_date_has_parse_attribute():
@@ -21,7 +22,11 @@ def test_parse_return_datetime_object():
 
 
 @pytest.mark.parametrize('test_string,start_time,expected_time', [
-    pytest.param('noon', '2000-01-02 03:04:05', '2000-01-02 12:00:00', id='foo')
+    pytest.param(
+        test_params[0], test_params[1], test_params[2],
+        id='{} {}'.format(scenario_name, test_name))
+    for scenario_name, scenario in scenarios_dict.items()
+    for test_name, test_params in scenario.items()
 ])
 def test_at_date_parser(test_string, start_time, expected_time):
     expected_dt = datetime.strptime(expected_time, '%Y-%m-%d %H:%M:%S')
