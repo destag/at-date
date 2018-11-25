@@ -15,12 +15,9 @@ class AtDateParser:
         tree = self.parser.parse(string_to_parse.lower())
         new_tree = transformer.transform(tree)
 
-        next_time_run = new_tree if isinstance(new_tree, datetime) else new_tree.children[-1]
+        parsed_time = new_tree if isinstance(new_tree, datetime) else new_tree.children[-1]
 
-        if next_time_run < transformer.now:
-            raise ValueError
-
-        return next_time_run
+        return parsed_time
 
 
 class AtDateTransformer(Transformer):
