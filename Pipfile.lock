@@ -16,11 +16,11 @@
     "default": {
         "lark-parser": {
             "hashes": [
-                "sha256:78d1e293a1fb06f10373552af95f70832e2bfe19aebfc3b142ea6c03b2ea0597",
-                "sha256:9d9ce33f36f749211194823a1175a76e2ccabccdfb86a196cefb967914122cd7"
+                "sha256:157879e04628e8e2bd57b72f3ba5642b3919137d5f7058612e95a38fb8761fa7",
+                "sha256:e3ee17708e310de3a832a9beb448aa60ab6812f1bb283f72d473584c7566cc74"
             ],
             "index": "pypi",
-            "version": "==0.8.2"
+            "version": "==0.8.5"
         },
         "python-dateutil": {
             "hashes": [
@@ -201,10 +201,10 @@
         },
         "wcwidth": {
             "hashes": [
-                "sha256:8fd29383f539be45b20bd4df0dc29c20ba48654a41e661925e612311e9f3c603",
-                "sha256:f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
+                "sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1",
+                "sha256:ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
             ],
-            "version": "==0.1.8"
+            "version": "==0.1.9"
         }
     }
 }
