@@ -11,10 +11,10 @@ before_install:
   - pip install pipenv
 
 install:
-  - pipenv sync
-  - pipenv sync --dev
+  - pipenv install
+  - pipenv install --dev
 
-script: pipenv run pytest --cov=atdate
+script: python -m pytest --cov=atdate
 
 after_success: codecov
 
