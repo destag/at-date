@@ -1,4 +1,4 @@
-format_string = r'''
+format_string = r"""
 ?timespec: time
          | time date
          | time increment
@@ -27,31 +27,31 @@ isotime: HR24CLOCK_HOUR ":" MINUTE                   -> _iso_time
 increment: "next" INC_PERIOD                         -> _next
          | "+" INT INC_PERIOD                        -> _inc_number
 nowspec: "now"                                       -> _now
-INC_PERIOD: "minutes" | "minute"
-          | "hours" | "hour"
-          | "days" | "day"
-          | "weeks" | "week"
-          | "months" | "month"
-          | "years" | "year"
-MONTH_NAME: "january" | "jan"
-          | "february" | "feb"
-          | "march" | "mar"
-          | "april" | "apr"
-          | "may"
-          | "june" | "jun"
-          | "july" | "jul"
-          | "august" | "aug"
+INC_PERIOD: "minutes"   | "minute"
+          | "hours"     | "hour"
+          | "days"      | "day"
+          | "weeks"     | "week"
+          | "months"    | "month"
+          | "years"     | "year"
+MONTH_NAME: "january"   | "jan"
+          | "february"  | "feb"
+          | "march"     | "mar"
+          | "april"     | "apr"
+          | "may"       | "may"
+          | "june"      | "jun"
+          | "july"      | "jul"
+          | "august"    | "aug"
           | "september" | "sep"
-          | "october" | "oct"
-          | "november" | "nov"
-          | "december" | "dec"
-DAY_NAME: "monday" | "mon"
-        | "tuesday" | "tue"
+          | "october"   | "oct"
+          | "november"  | "nov"
+          | "december"  | "dec"
+DAY_NAME: "monday"    | "mon"
+        | "tuesday"   | "tue"
         | "wednesday" | "wed"
-        | "thursday" | "thu"
-        | "friday" | "fri"
-        | "saturday" | "sat"
-        | "sunday" | "sun"
+        | "thursday"  | "thu"
+        | "friday"    | "fri"
+        | "saturday"  | "sat"
+        | "sunday"    | "sun"
 DAY_NUMBER: /([0-3][0-9]|[0-9])/
 MONTH_NUMBER: /([1-9]|0[1-9]|1[0-2])/
 YEAR_NUMBER: /[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9]|[0-9]/
@@ -64,4 +64,4 @@ AM_PM: "am" | "pm"
 %import common.INT
 %import common.WS
 %ignore WS
-'''
+"""
