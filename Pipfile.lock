@@ -16,10 +16,11 @@
     "default": {
         "lark-parser": {
             "hashes": [
-                "sha256:e29ca814a98bb0f81674617d878e5f611cb993c19ea47f22c80da3569425f9bd"
+                "sha256:0eaf30cb5ba787fe404d73a7d6e61df97b21d5a63ac26c5008c78a494373c675",
+                "sha256:15967db1f1214013dca65b1180745047b9be457d73da224fcda3d9dd4e96a138"
             ],
             "index": "pypi",
-            "version": "==0.11.3"
+            "version": "==0.12.0"
         },
         "python-dateutil": {
             "hashes": [
