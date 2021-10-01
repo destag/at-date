@@ -5,12 +5,14 @@ from dateutil.relativedelta import relativedelta
 
 from .atdate_format import format_string
 
+from typing import Optional
+
 
 class AtDateParser:
     def __init__(self):
         self.parser = Lark(format_string, start="timespec")
 
-    def execute(self, string_to_parse):
+    def execute(self, string_to_parse:str) -> Optional[datetime]:
         transformer = AtDateTransformer()
         tree = self.parser.parse(string_to_parse.lower())
         new_tree = transformer.transform(tree)
