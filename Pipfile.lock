@@ -262,11 +262,11 @@
         },
         "types-freezegun": {
             "hashes": [
-                "sha256:6f2ef38998ebc778f7147229d7ab19cc1e8325eb68d28a05da6415def8980884",
-                "sha256:c9d10c5a382e5cd04b9110775b0f523ecad63e877ce753f812b15cea0c0ed896"
+                "sha256:0238eb8467c57bcb0d54aa823e181edaec5d59477576681d71d578a544a53a24",
+                "sha256:8cb0a745b6875d6c0f0883969d409f576bfa65a561183dcd2807ea14b4fa920e"
             ],
             "index": "pypi",
-            "version": "==1.1.1"
+            "version": "==1.1.2"
         },
         "types-python-dateutil": {
             "hashes": [
