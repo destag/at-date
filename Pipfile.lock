@@ -42,11 +42,11 @@
     "develop": {
         "attrs": {
             "hashes": [
-                "sha256:149e90d6d8ac20db7a955ad60cf0e6881a3f20d37096140088356da6c716b0b1",
-                "sha256:ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
+                "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4",
+                "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
-            "version": "==21.2.0"
+            "version": "==21.4.0"
         },
         "certifi": {
             "hashes": [
@@ -73,6 +73,9 @@
             "version": "==2.1.12"
         },
         "coverage": {
+            "extras": [
+                "toml"
+            ],
             "hashes": [
                 "sha256:01774a2c2c729619760320270e42cd9e797427ecfddd32c2a7b639cdc481f3c0",
                 "sha256:03b20e52b7d31be571c9c06b74746746d4eb82fc260e594dc662ed48145e9efd",
@@ -271,11 +274,11 @@
         },
         "types-freezegun": {
             "hashes": [
-                "sha256:e072fd10fbc4dd7f28f33c094ccb36f9578e1e96f70b01f2ed3f214f0383e6e8",
-                "sha256:eb12cd460cb9ed9a0674c6f2c799763f85650db59b00f2918ff55bc11e1be2ae"
+                "sha256:45f5f3e75546fbe05da2f19f769b2feb22f14c304f47f3f7ecbad633688302a1",
+                "sha256:904d2f67c40dea853b382a452cf12163245907c746028819e03256e0f216718c"
             ],
             "index": "pypi",
-            "version": "==1.1.3"
+            "version": "==1.1.4"
         },
         "types-python-dateutil": {
             "hashes": [
