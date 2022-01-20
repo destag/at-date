@@ -73,9 +73,6 @@
             "version": "==2.1.12"
         },
         "coverage": {
-            "extras": [
-
-            ],
             "hashes": [
                 "sha256:01774a2c2c729619760320270e42cd9e797427ecfddd32c2a7b639cdc481f3c0",
                 "sha256:03b20e52b7d31be571c9c06b74746746d4eb82fc260e594dc662ed48145e9efd",
@@ -282,11 +279,11 @@
         },
         "types-python-dateutil": {
             "hashes": [
-                "sha256:0e3b96fc79d3e58e011a9446ec85be080e2d2a8840dfe124ce30f4e53dbca9e5",
-                "sha256:f34bae3c8e83c67f7cbf407fc9d6ee889d7708b42270a496b6026a5537e80482"
+                "sha256:efe0207836d3b09e3a2986064a5c7f36e79ea423ab9b6676a62bf5dd51fb261b",
+                "sha256:f704c2b7981e140eac7d626424e6232c1594d392c57c252d81a90fe53c2be896"
             ],
             "index": "pypi",
-            "version": "==2.8.7"
+            "version": "==2.8.8"
         },
         "typing-extensions": {
             "hashes": [
