@@ -1,10 +1,11 @@
 language: python
 
+dist: jammy
+
 python:
-  - 3.6
-  - 3.7
   - 3.8
-  - 3.8-dev
+  - 3.9
+  - 3.10
 
 before_install:
   - pip install pipenv
@@ -27,4 +28,4 @@ deploy:
   on:
     branch: master
     tags: true
-    condition: $TRAVIS_PYTHON_VERSION = "3.7"
+    condition: $TRAVIS_PYTHON_VERSION = "3.10"
