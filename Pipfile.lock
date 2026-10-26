@@ -471,12 +471,12 @@
         },
         "types-python-dateutil": {
             "hashes": [
-                "sha256:a4a537f0ea7126f8ccc2763eec9aa31ac8609e3c8e530eb2ddc5ee234b3cd764",
-                "sha256:d8a6687e197f2fa71779ce36176c666841f811368710ab8d274b876424ebfcaa"
+                "sha256:12aab3bdfe55e1d9de7f54301e025d6276ce17e6a08e31644f2202d59c8d1fca",
+                "sha256:62d66fcdd293e38745eae644e5da4cb399b98799c0ae61f03a54896fb51b3140"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.9'",
-            "version": "==2.9.0.20251108"
+            "markers": "python_version >= '3.10'",
+            "version": "==2.9.0.20261021"
         },
         "typing-extensions": {
             "hashes": [
